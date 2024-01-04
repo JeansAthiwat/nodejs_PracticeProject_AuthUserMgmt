@@ -11,13 +11,13 @@ let friends = {
 
 // GET request: Retrieve all friends
 router.get("/", (req, res) => {
-  res.send(JSON.stringify(friend,null,4))
+  res.send(JSON.stringify(friend, null, 4))
 });
 
 // GET by specific ID request: Retrieve a single friend with email ID
 router.get("/:email", (req, res) => {
-  // Update the code here
-  res.send("Yet to be implemented")//This line is to be replaced with actual return value
+  const email = req.params.get('email')
+  res.send(friends[email])
 });
 
 
