@@ -11,12 +11,12 @@ let friends = {
 
 // GET request: Retrieve all friends
 router.get("/", (req, res) => {
-  res.send(JSON.stringify(friend, null, 4))
+  res.send(JSON.stringify(friends, null, 4))
 });
 
 // GET by specific ID request: Retrieve a single friend with email ID
 router.get("/:email", (req, res) => {
-  const email = req.params.get('email')
+  const email = req.params.email
   res.send(friends[email])
 });
 
@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
       "DOB": req.body.DOB
     }
   }
-  es.send("The user" + (' ') + (req.body.firstName) + " Has been added!");
+  res.send("The user" + (' ') + (req.body.firstName) + " Has been added!");
 });
 
 
